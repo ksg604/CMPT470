@@ -1,0 +1,48 @@
+.bg-3 { 
+      background-color: #ffffff;
+      color: #555555;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+  .navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 12px;
+      letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+      color: #1abc9c !important;
+  }
+.active>a {
+    color: #1abc9c !important;;
+  }
+
+  #table{
+      width:100%;
+      border: 1px solid black;
+  }
+
+  #table tr th {
+      border-right: 1px solid black;
+  }
+
+  #table tr td{
+      border-right: 1px solid black;
+      border-top: 1px solid black;
+  }
+
+  .graphName{
+      float:left;
+      width:15%;
+  }
+
+  .ageContainer{
+      display:inline-block;
+      width:85%;
+      background-color: #ddd;
+  }

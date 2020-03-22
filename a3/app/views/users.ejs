@@ -1,0 +1,46 @@
+<script src="../javascripts/menu.js"></script>
+<script src='./javascripts/map.js'></script>
+
+<div class="container-fluid bg-3 text-center">    
+  <h3><%= page %></h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+   
+            
+    </div>
+    
+    <div class="col-sm-4"> 
+        <form onsubmit="handleSubmit()">
+            <fieldset>
+                <legend>Select a restaurant: </legend>
+                 <p>
+                <label>Restaurants:</label>
+                <select id = "restaurants" onchange = "updateRestaurantHours(this.options[this.selectedIndex])">
+                  <option value = "selectRestaurant">Select restaurant</option>
+                </select><br>
+
+                <label>Available Hours:</label>
+                <select id = "restaurantTimes">
+                  <option value = "selectRestaurantTime">Select a time to book</option>
+
+                </select>
+               
+                 </p>
+              
+            <input type = "submit" value = "Book Now" onclick = "bookUser()"/>
+        </fieldset>
+        </form>
+        <input type = "button" onclick = "populateRestaurants()" value = "Get Restaurants"/>
+       
+
+    </div>
+	
+	<div id="map">
+	</div>
+	
+    <div class="col-sm-4"> 
+    </div>
+
+  </div>
+
+</div>
