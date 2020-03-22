@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html lang = "en">
+
+	<head>
+		<title>Users</title>
+		<meta charset = "utf-8" />
+		<link rel = "stylesheet" type = "text/CSS" href = "layout.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		
+	</head>
+
+	<body>
+
+		<div class = "container">
+			<form id = "userInfo">
+				Name:<br>
+				<input type = "textbox" name = "Name"><br>
+				Email:<br>
+				<input type = "email" name = "Email"><br>
+				Age:<br>
+				<input type = "number" name = "Age"><br>
+				<button type = "button" onclick="submitUser();return false;"> Submit </button>
+			</form>
+
+			<div class = "sidePanel">
+			
+
+				<div class = "sortButton">
+					<h1>Sort Options:</h1>	
+					<button type = "button" onclick = "sortAge();">SORT by AGE</button>
+					<button type = "button" onclick = "sortName();">SORT by NAME</button>
+					<button type = "button" onclick = "sortEmail();">SORT by EMAIL</button>
+				</div>
+
+				<div class = "userAvgAge">
+					Average Age:
+				</div>
+			</div>
+
+			
+		</div>
+	
+
+		<div class = "tableContainer">
+			<h1>Users:</h1>
+			<strong>(click on a user entry to remove them from the table)</strong>
+			<table id = "Table">
+				
+				<tr>
+					<th>no.</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Age</th>
+				</tr>
+
+			</table>
+		</div>
+	
+		
+
+		<script src="script.js"></script>
+	</body>
+
+</html>

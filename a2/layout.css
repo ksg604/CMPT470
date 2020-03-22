@@ -1,0 +1,78 @@
+#userInfo
+{
+	width: 45%;
+}
+
+html > body > .container #userInfo 
+{
+	margin: 10px;
+	float:left;
+	font-size: 30px;
+}
+
+html > body > .container #userInfo input[type = textbox], input[type = email], input[type = number]
+{
+	
+	width: 100%;
+	font-size: 20px;
+}
+
+html > body > .container #userInfo button
+{
+	height: 40px;
+	width: 100%;
+	font-size: 20px;
+}
+
+.sidePanel
+{
+	width: 100%;
+	text-align: center;
+}
+
+.userAvgAge
+{	
+	font-size: 25px;
+	float:left;
+	margin-top: 25px;
+	margin-left: 25px;
+}
+
+.sortButton
+{
+	width: 50%;
+	position: relative;
+	float:left;
+}
+
+.sortButton button
+{
+	position: relative;
+	height: 40px;
+	width: 80%;
+	font-size: 18px;
+	margin: 5px;
+}
+
+
+html > body > .tableContainer 
+{
+	clear:both;
+}
+
+html > body > .tableContainer #Table
+{
+	width: 100%;
+	border: 1px solid black;
+}
+
+html > body > .tableContainer #Table tr th
+{
+	border-right: 1px solid black;
+}
+
+html > body > .tableContainer #Table tr td
+{
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+}
