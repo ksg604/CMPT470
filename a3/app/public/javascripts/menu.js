@@ -50,7 +50,8 @@ function populateTable()
     fetch("http://localhost:8080/getusers", {
         method: "GET",
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         }
     }).then(function(res) {
         return res.json();
@@ -125,7 +126,8 @@ function populateGraph()
     fetch("http://localhost:8080/getusers", {
         method: "GET",
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         }
     }).then(function(res) {
         return res.json();
@@ -189,7 +191,8 @@ function clearDb()
     fetch("http://localhost:8080/delete_users", {
         method: "GET",
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         }
     }).then(function(res) {
         return res.json();
@@ -270,7 +273,8 @@ function removeUser(id)
     fetch("http://localhost:8080/delete_user", {
     method: "POST",
     headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
      },
     body: JSON.stringify({
         id: userId,
