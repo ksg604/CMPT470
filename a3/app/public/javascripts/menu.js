@@ -126,11 +126,11 @@ function populateGraph()
     
     fetch("http://localhost:8080/getusers", {
         method: "GET",
-        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
             
-        }
+        },
+        mode: 'no-cors'
     }).then(function(res) {
         return res.json();
     }).then(function(res) {
@@ -192,11 +192,11 @@ function clearDb()
 {
     fetch("http://localhost:8080/delete_users", {
         method: "GET",
-        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
          
-        }
+        },
+        mode: 'no-cors'
     }).then(function(res) {
         return res.json();
     }).then(function(res) {
@@ -225,7 +225,6 @@ function createUser()
 
     fetch("http://localhost:8080/create_user", {
         method: "POST",
-        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
 
@@ -238,7 +237,8 @@ function createUser()
             address: userAddress,
             gender: userGender,
             dob: userDob
-        })
+        }),
+        mode: 'no-cors'
     }).then(function(res) {
         return(res.json());
     }).then(function(res) {
@@ -277,7 +277,6 @@ function removeUser(id)
     //Delete user from database
     fetch("http://localhost:8080/delete_user", {
     method: "POST",
-    mode: 'no-cors',
     headers: {
         'Content-Type': 'application/json'
      },
@@ -290,7 +289,8 @@ function removeUser(id)
         address: userAddress,
         gender: userGender,
         dob: userDob
-    })
+    }),
+    mode: 'no-cors'
     }).then(function(res) {
         return(res.json());
     }).then(function(res) {
@@ -359,7 +359,6 @@ function editHandler()
                     //Update database entry
                     fetch("http://localhost:3000/edit_user", {
                         method: "POST",
-                        mode: 'no-cors',
                         headers: {
                             'Content-Type': 'application/json'
                         },
@@ -372,7 +371,8 @@ function editHandler()
                             address: userAddress,
                             gender: userGender,
                             dob: userDob
-                        })
+                        }),
+                        mode: 'no-cors'
                     }).then(function(res) {
                         return(res.json());
                     }).then(function(res) {
