@@ -49,9 +49,10 @@ function populateTable()
 
     fetch("http://localhost:8080/getusers", {
         method: "GET",
+        mode: 'no-cors',
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
+            
         }
     }).then(function(res) {
         return res.json();
@@ -125,9 +126,10 @@ function populateGraph()
     
     fetch("http://localhost:8080/getusers", {
         method: "GET",
+        mode: 'no-cors',
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
+            
         }
     }).then(function(res) {
         return res.json();
@@ -190,9 +192,10 @@ function clearDb()
 {
     fetch("http://localhost:8080/delete_users", {
         method: "GET",
+        mode: 'no-cors',
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json'
+         
         }
     }).then(function(res) {
         return res.json();
@@ -222,8 +225,10 @@ function createUser()
 
     fetch("http://localhost:8080/create_user", {
         method: "POST",
+        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
+
         },
         body: JSON.stringify({
             name: userName,
@@ -272,9 +277,9 @@ function removeUser(id)
     //Delete user from database
     fetch("http://localhost:8080/delete_user", {
     method: "POST",
+    mode: 'no-cors',
     headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/json'
      },
     body: JSON.stringify({
         id: userId,
@@ -354,6 +359,7 @@ function editHandler()
                     //Update database entry
                     fetch("http://localhost:3000/edit_user", {
                         method: "POST",
+                        mode: 'no-cors',
                         headers: {
                             'Content-Type': 'application/json'
                         },
