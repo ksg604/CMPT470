@@ -47,7 +47,7 @@ function populateTable()
         return;
     }
 
-    fetch("http://localhost:3306/getusers", {
+    fetch("http://localhost:8080/getusers", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -122,7 +122,7 @@ function populateGraph()
         return;
     }
     
-    fetch("http://localhost:3306/getusers", {
+    fetch("http://localhost:8080/getusers", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -186,7 +186,7 @@ function populateGraph()
 
 function clearDb()
 {
-    fetch("http://localhost:3306/delete_users", {
+    fetch("http://localhost:8080/delete_users", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -217,7 +217,7 @@ function createUser()
     }
     var userDob = document.querySelector('#userDob').value;
 
-    fetch("http://localhost:3306/create_user", {
+    fetch("http://localhost:8080/create_user", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -267,7 +267,7 @@ function removeUser(id)
     }
 
     //Delete user from database
-    fetch("http://localhost:3306/delete_user", {
+    fetch("http://localhost:8080/delete_user", {
     method: "POST",
     headers: {
         'Content-Type': 'application/json'

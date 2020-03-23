@@ -71,8 +71,8 @@ dbC.once('error', error => console.log('Connected to Mongoose'))
 app.use('/', indexRouter)
 
 
-app.listen('4000', () => {
-    console.log('Server started on port 4000');
+app.listen('8080', () => {
+    console.log('Server started on port 8080');
 })
 
 //app.listen('4000', '0.0.0.0');
