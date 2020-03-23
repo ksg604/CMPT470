@@ -49,7 +49,6 @@ function populateTable()
 
     fetch("http://localhost:8080/getusers", {
         method: "GET",
-        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/json'
             
@@ -129,8 +128,7 @@ function populateGraph()
         headers: {
             'Content-Type': 'application/json'
             
-        },
-        mode: 'no-cors'
+        }
     }).then(function(res) {
         return res.json();
     }).then(function(res) {
@@ -195,8 +193,7 @@ function clearDb()
         headers: {
             'Content-Type': 'application/json'
          
-        },
-        mode: 'no-cors'
+        }
     }).then(function(res) {
         return res.json();
     }).then(function(res) {
@@ -237,8 +234,7 @@ function createUser()
             address: userAddress,
             gender: userGender,
             dob: userDob
-        }),
-        mode: 'no-cors'
+        })
     }).then(function(res) {
         return(res.json());
     }).then(function(res) {
@@ -289,8 +285,7 @@ function removeUser(id)
         address: userAddress,
         gender: userGender,
         dob: userDob
-    }),
-    mode: 'no-cors'
+    })
     }).then(function(res) {
         return(res.json());
     }).then(function(res) {
@@ -371,8 +366,7 @@ function editHandler()
                             address: userAddress,
                             gender: userGender,
                             dob: userDob
-                        }),
-                        mode: 'no-cors'
+                        })
                     }).then(function(res) {
                         return(res.json());
                     }).then(function(res) {
