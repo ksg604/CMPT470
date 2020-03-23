@@ -47,7 +47,7 @@ function populateTable()
         return;
     }
 
-    fetch("http://localhost:3000/getusers", {
+    fetch("http://localhost:3306/getusers", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -122,7 +122,7 @@ function populateGraph()
         return;
     }
     
-    fetch("http://localhost:3000/getusers", {
+    fetch("http://localhost:3306/getusers", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -186,7 +186,7 @@ function populateGraph()
 
 function clearDb()
 {
-    fetch("http://localhost:3000/delete_users", {
+    fetch("http://localhost:3306/delete_users", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -217,7 +217,7 @@ function createUser()
     }
     var userDob = document.querySelector('#userDob').value;
 
-    fetch("http://localhost:3000/create_user", {
+    fetch("http://localhost:3306/create_user", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -267,7 +267,7 @@ function removeUser(id)
     }
 
     //Delete user from database
-    fetch("http://localhost:3000/delete_user", {
+    fetch("http://localhost:3306/delete_user", {
     method: "POST",
     headers: {
         'Content-Type': 'application/json'
@@ -315,9 +315,9 @@ function editHandler()
                     var userEmail = prompt('Enter new email',row.cells[2].innerHTML);
                     var userAge = prompt('Enter new age',row.cells[3].innerHTML);
                     var userPhone = prompt('Enter new phone number',row.cells[4].innerHTML);
-                    var userAddress = prompt('Enter new email address',row.cells[5].innerHTML);
+                    var userAddress = prompt('Enter new address',row.cells[5].innerHTML);
                     var userGender = prompt('Enter new gender',row.cells[6].innerHTML);
-                    var userDob = prompt('Enter new user',row.cells[7].innerHTML)     
+                    var userDob = prompt('Enter new date of birth',row.cells[7].innerHTML)     
 
                     /*
                     //Delete from graph

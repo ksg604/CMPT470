@@ -4,10 +4,10 @@ const router = express.Router();
 
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'Taguig050396!',
-    database: 'nodemysql'
+    host: '35.230.112.182',
+    user: 'test_user',
+    password: 'test_pass',
+    database: 'asn3db'
 });
 
 db.connect((err) => {
@@ -21,6 +21,7 @@ db.connect((err) => {
     }
 })
 
+
 //GET home page
 router.get('/', (req, res) => {
 	//res.send('hello')
@@ -29,7 +30,7 @@ router.get('/', (req, res) => {
 
 // Create DB
 router.get('/createdb', (req, res) => {
-    let sql = 'CREATE DATABASE nodemysql';
+    let sql = 'CREATE DATABASE asn3db';
     db.query(sql, (err, result) => {
         if(err) console.log(err);
         console.log(result);
@@ -53,7 +54,7 @@ router.get('/createuserstable', (req, res) => {
 });
 
 router.get('/addUser', (req, res) => {
-    let user = {name: 'Laura', email: 'laura@gmail.com', age: 45, phone: '604-511-4354', address: 'test street 3000', gender: 'female', dob: '1975-03-15'};
+    let user = {name: 'Laura', email: 'laura@gmail.com', age: 55, phone: '604-511-4354', address: 'test street 3000', gender: 'female', dob: '1975-03-15'};
     let sql = 'INSERT INTO users SET ?';
     let query = db.query(sql, user, (err, result) => {
         if(err) 
@@ -157,7 +158,8 @@ router.post('/create_user', function(req, res) {
 		gender: req.body.gender,
 		dob: req.body.dob
 	}
-	let sql = 'INSERT INTO USERS SET ?';
+	
+	let sql = 'INSERT INTO users SET ?';
 	let query = db.query(sql, user, (err, result) => {
 		if(err)
 		{
