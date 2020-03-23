@@ -3,8 +3,10 @@ const mysql = require('mysql');
 const router = express.Router();
 
 
+
+
 const db = mysql.createConnection({
-    host: '35.230.112.182',
+    host: '35.212.132.190',
     user: 'test_user',
     password: 'test_pass',
     database: 'asn3db'
@@ -158,7 +160,7 @@ router.post('/create_user', function(req, res) {
 		gender: req.body.gender,
 		dob: req.body.dob
 	}
-	
+
 	let sql = 'INSERT INTO users SET ?';
 	let query = db.query(sql, user, (err, result) => {
 		if(err)
