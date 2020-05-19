@@ -1,0 +1,7 @@
+<script src='/javascripts/socket.io.js'></script>
+<script src='/javascripts/chat.js'></script>
+
+
+<body onload="joinRoom(this,'<%= user.name %>','<%= user._id %>', '<%= user.currentRestraunt %>')">
+
+<%- include('./partials/chat.ejs')%>

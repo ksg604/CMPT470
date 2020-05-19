@@ -1,0 +1,24 @@
+<div class = "container">
+    <div class = "row-login">
+        <div class = "login-group">
+            <h1 class = "text-center">Log-in</h1>
+                <form action="/" method="POST">
+                    <div class = "form-group">
+                        <label for= "username">Username</label>
+                        <input type = "username" id = "username" name = "username" class = "form-control" placeholder = "Enter your username" required/>
+                    </div><br>
+                    <div class = "form-group">
+                        <label for= "password">Password</label>
+                        <input type = "password" id = "password" name = "password" class = "form-control" placeholder = "Enter your password" required/>
+                    </div><br>
+                    <button type = "submit" class = "login-btn">
+                        Login
+                    </button><br><br>
+                    <div class = "error-message">
+                        <%-JSON.stringify(err.message)%>
+                    </div>
+
+                </form>
+        </div>
+    </div>
+</div>

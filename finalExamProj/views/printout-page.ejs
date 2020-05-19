@@ -1,0 +1,75 @@
+<div class = "container">
+    <div class = "results-row">
+        
+        <h1>Results</h1>
+        <div class = "table-group">
+        <table class = "results-table">
+            <thead>
+                <th>studentID</th>
+                <th>quiz</th>
+                <th>midterm exam</th>
+                <th>final exam</th>
+                <th>final grade</th>
+                <th>letter</th>  
+            </thead>
+            <tbody class = "results-table-body">
+            </tbody>
+        </table>
+        </div>
+    </div>
+</div>
+
+<script type = "text/javascript">
+    var tableBody = document.querySelector('.results-table-body');
+    var csvData = <%-JSON.stringify(data)%>;
+    var letterGrades = <%-letterGradesData%>;
+
+
+    for(var i = 0; i < csvData.length; i++){
+        var row = tableBody.insertRow();
+
+        var studentIDCell = row.insertCell(0);
+        var quizCell = row.insertCell(1);
+        var midtermCell = row.insertCell(2);
+        var finalCell = row.insertCell(3);
+        var percentageCell = row.insertCell(4);
+        var letterCell = row.insertCell(5);
+    }
+
+    for(var i = 0; i < csvData.length; i++){
+            //Calculate each student's final grade
+            if(csvData[i].studentID == 'total'){
+                quizWeight = csvData[i].quiz;
+                midtermWeight = csvData[i].midterm;
+                finalWeight = csvData[i].final;
+            }
+    }
+
+    for(var i = 0; i < csvData.length; i++){
+             
+        var studentID = csvData[i].studentID;
+        var quiz = csvData[i].quiz;
+        var midterm = csvData[i].midterm;
+        var final = csvData[i].final;
+        
+        if(studentID == 'total'){
+            continue;
+        }
+
+        quizPercentage = (quiz/100) * quizWeight;
+        midtermPercentage = (midterm/100) * midtermWeight;
+        finalPercentage = (final/100) * finalWeight;
+
+        studentFinalPercentage = quizPercentage + midtermPercentage + finalPercentage;
+
+        tableBody.rows[i].cells[0].innerHTML = studentID;
+        tableBody.rows[i].cells[1].innerHTML = quiz;
+        tableBody.rows[i].cells[2].innerHTML = midterm;
+        tableBody.rows[i].cells[3].innerHTML = final;
+        tableBody.rows[i].cells[4].innerHTML = studentFinalPercentage.toFixed(2) + '%';
+        tableBody.rows[i].cells[5].innerHTML = letterGrades[i];
+
+        
+    }
+
+</script>

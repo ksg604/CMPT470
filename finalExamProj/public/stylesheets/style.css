@@ -1,0 +1,107 @@
+.row-login{
+    width:100%;
+}
+
+.error-message{
+    color: red;
+}
+
+.login-group{
+    text-align: center;
+}
+.form-group{
+    font-size: 20px;
+}
+
+#username{
+    font-size: 25px;
+    height:30px;
+    width: 300px;
+}
+::placeholder{
+    font-size: 25px;
+}
+
+#password{
+    font-size: 25px;
+    height:30px;
+    width: 300px;
+}
+
+.login-btn{
+    font-size: 20px;
+    height: 50px;
+    width: 250px;
+}
+
+.upload-group{
+    text-align: center;
+}
+
+#csvfile{
+
+    height:50px;
+    font-size: 20px;
+}
+
+.upload-btn{
+    font-size: 20px;
+    height:50px;
+    width: 200px;
+
+}
+
+
+.row{
+    width: 75%;
+}
+.adjust-container{
+    float: left;
+}
+
+.histogram-container{
+   
+    float:right;
+}
+
+.bar-container{
+    float:left;
+    padding: 5px;
+}
+
+.slider{
+    font-size: 30px;
+    padding-left:50px;
+    height:55px;
+    width:300px;
+}
+
+.print-btn{
+    
+    font-size: 30px;
+}
+
+.histogram-container{
+    font-size: 25px;
+}
+.histogram{
+    transform: scaleY(-1);
+}
+.bar-container{
+    transform: scaleY(-1);
+}
+.results-row{
+    width:100%;
+    font-size: 25px;
+}
+
+
+.results-table thead th {
+    padding-right: 20px;
+    font-size: 30px;
+}
+
+.results-table-body tr td{
+    padding:20px;
+}
+

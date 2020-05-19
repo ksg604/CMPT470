@@ -1,0 +1,153 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand">Walk-in Appointment</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <% if(menuId === 'home'){ %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" >
+          <% if(page === 'home'){ %>
+            <span class="active" >
+              <% } %>
+              <a class="nav-link" href="/">Home</a>
+              <% if(page === 'home'){ %>
+              </span >
+              <% } %>
+            </li>
+            <li class="nav-item dropdown">
+              <% if(page === 'business-home'){ %>
+                <span class="active" >
+                  <% } %>
+                  <a class="nav-link dropdown-toggle" href="/business" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Business
+                  </a>
+                  <% if(page === 'business-home'){ %>
+                  </span>
+                  <% } %>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <% if(page === 'business-login'){ %>
+                      <span class="active" >
+                        <% } %>
+                        <a class="dropdown-item" href="/business/login">Log-in</a>
+                        <% if(page === 'business-login'){ %>
+                        </span>
+                        <% } %>
+                        <div class="dropdown-divider"></div>
+                        <% if(page === 'business-signup'){ %>
+                          <span class="active" >
+                            <% } %>
+                            <a class="dropdown-item" href="/business/signup">Sign Up</a>
+                            <% if(page === 'business-signup'){ %>
+                            </span>
+                            <% } %>
+                          </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <% if(page === 'user-home'){ %>
+                            <span class="active">
+                              <% } %>
+                              <a class="nav-link dropdown-toggle" href="/user" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                User
+                              </a>
+                              <% if(page === 'user-home'){ %>
+                              </span>
+                              <% } %>
+
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <% if(page === 'user-login'){ %>
+                                  <span class="active" >
+                                    <% } %>
+                                    <a class="dropdown-item" href="/user/login">Log-in</a>
+                                    <% if(page === 'user-login'){ %>
+                                    </span>
+                                    <% } %>
+                                    <div class="dropdown-divider"></div>
+                                    <% if(page === 'user-signup'){ %>
+                                      <span class="active" >
+                                        <% } %>
+                                        <a class="dropdown-item" href="/user/signup">Sign Up</a>
+                                        <% if(page === 'user-signup'){ %>
+                                        </span>
+                                        <% } %>
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <% } %>
+                                <% if(menuId === 'business-dashboard'){ %>
+                                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                    <ul class="navbar-nav ml-auto">
+                                      <li class="nav-item" >
+                                        <% if(page === 'business-dashboard'){ %>
+                                          <span class="active" >
+                                            <% } %>
+                                        <a class="nav-link" href="/business/dashboard">Dashboard</a>
+                                        <% if(page === 'business-dashboard'){ %>
+                                        </span>
+                                            <% } %>
+                                      </li>
+                                      <li class="nav-item" >
+                                        <% if(page === 'business-review'){ %>
+                                          <span class="active" >
+                                            <% } %>
+                                        <a class="nav-link" href="/business/reviews">Review</a>
+                                        <% if(page === 'business-review'){ %>
+                                        </span>
+                                            <% } %>
+                                      </li>
+                                      <li class="nav-item" >
+                                        <% if(page === 'business-chat'){ %>
+                                          <span class="active" >
+                                            <% } %>
+                                        <a class="nav-link" href="/business/chat">Chat</a>
+                                        <% if(page === 'business-chat'){ %>
+                                        </span>
+                                            <% } %>
+                                      </li>
+                                      <li class="nav-item" >
+                                        <a class="nav-link" href="/business/logout">Logout</a>
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <% } %>
+                                  <% if(menuId === 'user-dashboard'){ %>
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                      <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item" >
+                                          <% if(page === 'user-dashboard'){ %>
+                                            <span class="active" >
+                                              <% } %>
+                                          <a class="nav-link" href="/user/dashboard">Dashboard</a>
+                                          <% if(page === 'user-dashboard'){ %>
+                                          </span>
+                                              <% } %>
+                                        </li>
+                                        <% if((typeof user.currentRestraunt != "undefined")&&(user.currentRestraunt != null)){ %>
+                                          <li class="nav-item" >
+                                            <% if(page === 'user-book'){ %>
+                                              <span class="active" >
+                                                <% } %>
+                                            <a class="nav-link" href="/user/book">Bookings</a>
+                                            <% if(page === 'user-book'){ %>
+                                            </span>
+                                                <% } %>
+                                          </li>
+                                          <li class="nav-item" >
+                                            <% if(page === 'user-chat'){ %>
+                                              <span class="active" >
+                                                <% } %>
+                                            <a class="nav-link" href="/user/chat">Chat</a>
+                                            <% if(page === 'user-chat'){ %>
+                                            </span>
+                                                <% } %>
+                                          </li>
+                                          <% } %>
+                                          <li class="nav-item" >
+                                            <a class="nav-link" href="/user/logout">Logout</a>
+                                          </li>
+                                        </ul>
+                                      </div>
+
+                                      <% } %>
+                                    </nav>

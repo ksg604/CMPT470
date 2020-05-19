@@ -1,0 +1,32 @@
+<script type="text/javascript" src='/javascripts/map.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA3egeDlojmHi7fbwXRWBEvtdBGEuVtX0&callback=initMap&libraries=geometry" async defer></script>
+
+<h1>Welcome <%= user.name %></h1>
+<%- include('./partials/msg.ejs'); %>
+<div id="map">
+</div>
+
+<br>
+
+<table id='businessTable' class='table'>
+  <caption style="caption-side:top">Business near you:</caption>
+  <colgroup id='BusiDataColumns'>
+    <col />
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Open hours</th>
+      <th>Queue</th>
+      <th>Distance</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<script>
+    var currentUser = <%- JSON.stringify(JSON.stringify(user))%>
+</script>

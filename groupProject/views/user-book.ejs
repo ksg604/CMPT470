@@ -1,0 +1,7 @@
+<%- include('./partials/msg.ejs'); %>
+<h1>Bookings</h1>
+<% if(typeof business !== 'undefined'){ %>
+  <p><%=user.name%>, you are reserved at the <%=business.name%>.<br>
+    Your current position is <%= business.queueList.findIndex(x => user._id.equals(x.id)) + 1%><br></p>
+    <a href="/user/removeBook"><button type="button" class="btn btn-danger">Remove from queue</button></a>
+    <% } %>

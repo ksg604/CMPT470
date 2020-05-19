@@ -1,0 +1,39 @@
+
+
+<script type="text/javascript" src='/javascripts/map.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCA3egeDlojmHi7fbwXRWBEvtdBGEuVtX0&callback=initBusinessMap&libraries=geometry" async defer></script>
+<!-- make business id available to front-end javascript -->
+<script type="text/javascript">
+	var business = <%- JSON.stringify(JSON.stringify(business))%>;
+</script>
+<h1>Welcome <%= business.name %></h1>
+<p>Your current location on the map</p>
+<div id="map"></div>
+<% if(open === true){ %>
+  <p>Your business is open </p>
+	Your queue capacity is <%= business.queue %> and currently the number of people in the queue are <%= business.queueList.length %>
+	<% if(business.queueList.length > 0){ %>
+		<table class="table">
+			<thead>
+				<tr>
+				<th scope="col">Queue Index</th>
+				<th scope="col">Name</th>
+				<th scope="col">Delete</th>
+				<th scope="col">Serve</th>
+			</tr>
+		</thead>
+		<tbody>
+				<% for(let i = 0; i< business.queueList.length ; i++ ) {%>
+					<tr>
+						<th scope="row"><%= i + 1 %></td>
+						<td scope="row"><%= business.queueList[i].name %></td>
+						<td><a href="/business/deleteUser?id=<%=business.queueList[i].id%>&name=<%=business.queueList[i].name%>"><button class="btn btn-sm btn-outline-danger">Delete <%= business.queueList[i].name %></button></a></td>
+						<td><a href="/business/serveUser?id=<%=business.queueList[i].id%>&name=<%=business.queueList[i].name%>"><button class="btn btn-sm btn-outline-success">Serve <%= business.queueList[i].name %></button></a></td>
+					</tr>
+					<% } %>
+				</tbody>
+		</table>
+		<% } %>
+	<% }else{ %>
+      <p>Your business is closed</p>
+      <% } %>

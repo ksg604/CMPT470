@@ -30,6 +30,7 @@ router.get('/', (req, res) => {
 	res.render('index', {page:'User Database',menuId:'menu'})
 })
 
+
 // Create DB
 router.get('/createdb', (req, res) => {
     let sql = 'CREATE DATABASE asn3db';

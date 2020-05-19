@@ -1,0 +1,216 @@
+<div class = "container-fluid bg-3 text-center">
+    
+    <div class = "row">
+        <div class = "col-md-6">
+
+            <div class = "restInfo">
+                <div class = "restName"></div>
+                <div class = "restEmail"></div>
+                <div class =  "restAddress"></div>
+                <div class = "restState"></div>
+                <div class = "restZip"></div>
+                <div class = "restCountry"></div>
+                <div class = "restHours"></div>
+                <button id = "myBtn" value = "Write Review">Write Review</button>
+            </div>
+            
+            <div id = "myModal"  class = "modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span><br>
+                    Please write your review
+                    <form id = "modalForm" method = "POST" action = "/user/businessReview/">
+                        Select a rating
+                        <select id = "reviewRating" name = "rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br>
+                        <input id = "review" type = "textbox" name = "review"><br><br>
+                      
+
+                        
+                        
+                    </form>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+        <div class = "col-md-6">
+            <div class = "tableContainer">
+                <table class = "table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Visited</th>
+                            <th>Reviewer</th>
+                            <th>Review</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id = "restReviews">
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+
+    <script type = "text/javascript">
+
+        //Create pop-up window for writing review
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal 
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+        var business = <%-data%>;
+        var queryId = <%-JSON.stringify(query.id)%>;
+        var queryName = <%-JSON.stringify(user.name)%>;
+        var userID = <%-JSON.stringify(user._id)%>
+
+ 
+        console.log(business);
+
+        //Implement write review functionality
+
+
+        if(business._id == queryId){
+
+                //Initialize modal
+                var modalForm = document.querySelector('form');
+
+
+                var busId = document.createElement('input');
+                busId.setAttribute('type','hidden');
+                busId.setAttribute('name','busId');
+                busId.setAttribute('value',queryId);
+                modalForm.appendChild(busId);
+
+                var userName = document.createElement('input');
+                userName.setAttribute('type','hidden');
+                userName.setAttribute('name','userName');
+                userName.setAttribute('value',queryName);
+                modalForm.appendChild(userName);
+                
+
+                /*
+                var hidden = document.createElement('input');
+                hidden.setAttribute('type','hidden');
+                hidden.setAttribute('name','busId');
+                hidden.setAttribute('value',businesses[i]._id);
+                modalForm.appendChild(hidden);*/
+
+                var subBtn = document.createElement('input');
+                subBtn.setAttribute('type','submit');
+                modalForm.appendChild(subBtn);
+
+
+                
+                //Update restaurant information
+                var restName = document.querySelector('.restName');
+                restName.innerHTML = "<h3>" + business.name + "</h3>";
+             
+                var email = document.querySelector('.restEmail');
+                email.innerHTML = "Email: " + business.email;
+
+                var restAddress = document.querySelector('.restAddress');
+                if(business.add2){
+                    restAddress.innerHTML = "Address: " + business.add1 + "<br>" + business.add2;
+                }
+                else{
+                    
+                    restAddress.innerHTML = "Address: " + business.add1;
+                }
+
+                var restState = document.querySelector('.restState');
+                restState.innerHTML = "State: " + business.state;
+
+                var restZip = document.querySelector('.restZip');
+                restZip.innerHTML = "Zip:  " + business.zip;
+
+                var restCountry = document.querySelector('.restCountry');
+                restCountry.innerHTML = "Country: " + business.country;
+
+                var restHours = document.querySelector('.restHours');
+                restHours.innerHTML = "Hours: " + business.openingHour + " - " + business.closingHour; 
+
+                //Update reviews information
+
+                var reviewTable = document.querySelector('.table');
+
+                console.log('hi');
+                for(var j = 0; j < business.reviews.length; j++){
+                    
+                    var reviewer = business.reviews[j].reviewer;
+                    var rating = business.reviews[j].rating;
+                    var row = reviewTable.insertRow();
+                    row.className = (reviewer);
+                    row.id = (reviewer);
+
+
+                    var visitedCell = row.insertCell(0);
+                    visitedCell.innerHTML = 'No';
+                    for(var k = 0; k < business.serveList.length; k++){
+                        if(reviewer == business.serveList[k].name){
+                            visitedCell.innerHTML = 'Yes';
+                            continue;
+                        }
+                    }
+
+                    var reviewerCell = row.insertCell(1);
+                    reviewerCell.innerHTML = business.reviews[j].reviewer;
+                    var reviewCell = row.insertCell(2);
+                    reviewCell.innerHTML = business.reviews[j].review;
+                    var ratingCell = row.insertCell(3);
+
+                    var content = rating.toString() + " ";
+                    for (var k = 0; k < rating; k ++)
+                    {
+                        content+= "<span class=\"fa fa-star checked\"></span>";
+                    }
+                    for (var k = 0; k < (5 - rating); k++)
+                    {
+                        content+= "<span class=\"fa fa-star unchecked\"></span>";
+                    }
+                    ratingCell.innerHTML = content;
+                }
+        }
+
+    </script>
+</div>

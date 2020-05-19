@@ -1,0 +1,613 @@
+<div class = "container">
+    <div class = "row">
+
+
+        <div class = "adjust-container">
+
+            <h1 class = "slider-group-header">Adjust grades range</h1>
+            <div class = "slider-group">
+                <div class = "slider">
+                    <label for= "a+slider">A+</label>
+                    <input type = "range" name = "a+slider" class = "aplusslider" id = "aplusslider" min = "1" max  = "100" value = "90" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "aslider">A</label>
+                    <input type = "range" name = "aslider" class = "aslider" id = "aslider" min = "1" max = "100" value = "85" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "a-slider">A-</label>
+                    <input type = "range" name = "a-slider" class = "aminusslider" id = "aminusslider" min = "1" max = "100" value = "80" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "b+slider">B+</label>
+                    <input type = "range" name = "b+slider" class = "bplusslider" id = "bplusslider" min = "1" max = "100" value = "77" class = "slider">
+                </div> 
+
+                <div class = "slider">
+                    <label for= "bslider">B</label>
+                    <input type = "range" name = "bslider" class = "bslider" id = "bslider" min = "1" max = "100" value = "73" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "b-slider">B-</label>
+                    <input type = "range" name = "b-slider" class = "bminusslider" id = "bminusslider" min = "1" max = "100" value = "70" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "c+slider">C+</label>
+                    <input type = "range" name = "c+slider" class = "cplusslider" id = "cplusslider" min = "1" max = "100" value = "67" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "cslider">C</label>
+                    <input type = "range" name = "cslider" class = "cslider" id = "cslider" min = "1" max = "100" value = "63" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "c-slider">C-</label>
+                    <input type = "range" name = "c-slider" class = "cminusslider" id = "cminusslider" min = "1" max = "100" value = "60" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "dslider">D</label>
+                    <input type = "range" name = "dslider" class = "dslider" id = "dslider" min = "1" max = "100" value = "50" class = "slider">
+                </div>
+
+                <div class = "slider">
+                    <label for= "fslider">F<label>
+                    <input type = "range" name = "fslider" class = "fslider" id = "fslider" min = "1" max = "100" value = "0" class = "slider">
+                </div>
+            </div>
+            <div class = "printout-btn-group">
+                <form method = "POST" class = "form" action = "/landing-page/histogram-generator/">
+
+
+
+                   
+                </form>
+
+            </div>
+
+
+        </div>
+
+          <div class = "histogram-container">
+            <h1 class = "histogram-header">Histogram</h1>
+            <div class = "histogram" id = "histogram">
+
+                <table class = "histogram-table">
+
+                    <thead class = "table-head">
+                        <tr class = "table-grades">
+                            <th class = "table-header">
+                                <div class = "bar-container">
+                                    <div class = "A+"><strong>A+</strong></div>
+                                </div>
+                            </th>
+
+                            <th class = "table-header">
+                                <div class = "bar-container">
+                                    <div class = "A"><strong>A</strong></div>
+                                </div>
+                            </th>
+
+                            <th class = "table-header">
+                                <div class = "bar-container">
+                                    <div class = "A-"><strong>A-</strong></div>
+                                </div>
+                            </th>
+
+                            <th class = "table-header">
+                                <div class = "bar-container">
+                                    <div class = "B+"><strong>B+</strong></div>
+                                </div>
+                            </th>
+
+                            <th class = "table-header">
+                                <div class = "bar-container">
+                                    <div class = "B"><strong>B</strong></div>
+                                </div>
+                            </th>
+
+                            <th class = "table-header">
+                                <div class = "bar-container">
+                                    <div class = "B-"><strong>B-</strong></div>
+                                </div>
+                            </th>
+
+                            <th class = "table-header">
+                                <div class = "bar-container">
+                                    <div class = "C+"><strong>C+</strong></div>
+                                </div>
+                            </th>
+
+                            <th class = "table-header">
+                                <div class = "bar-container">
+                                    <div class = "C"><strong>C</strong></div>
+                                </div>
+                            </th>
+
+
+                            <th>
+                                <div class = "bar-container">
+                                    <div class = "C-"><strong>C-</strong></div>
+                                </div>
+                            </th>
+
+                            <th>
+                                <div class = "bar-container">
+                                    <div class = "D"><strong>D</strong></div>
+                                </div>
+                            </th>
+                            
+                            <th>
+                              
+                                <div class = "bar-container">
+                                    <div class = "F"><strong>F</strong></div>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody class = "table-body">
+                
+                    </tbody>
+
+
+            </div>
+        </div>
+
+     
+    </div>
+</div>
+
+
+<script type = text/javascript>
+    
+    var histogram = document.querySelector('.histogram');
+    var tableBody = document.querySelector('.table-body');
+    var csvData = <%-JSON.stringify(data)%>;
+
+    var quizWeight;
+    var midtermWeight;
+    var finalWeight;
+
+    var letterGrades = [];
+    
+
+    var studentGrade = {
+        0: 'A+',
+        1: 'A',
+        2: 'A-',
+        3: 'B+',
+        4: 'B',
+        5: 'B-',
+        6: 'C+',
+        7: 'C',
+        8: 'C-',
+        9: 'D',
+        10: 'F'
+    };
+
+    for(var i = 0; i < csvData.length; i++){
+    
+        //Insert rows to the histogram depending on how many students there are
+        var row = tableBody.insertRow();
+        row.className = `student${i}`;
+
+        for(var j = 0; j < 11; j++){
+            var cell = row.insertCell(j);
+            cell.className = studentGrade[j];
+
+        }
+    }
+
+
+    //Initialize cutoff values for each grade
+    var aplusslider = document.querySelector('.aplusslider');
+    var apluscutoff = aplusslider.value;
+
+    var aslider = document.querySelector('.aslider');
+    var acutoff = aslider.value;
+
+    var aminusslider = document.querySelector('.aminusslider');
+    var aminuscutoff = aminusslider.value;
+ 
+
+    var bplusslider = document.querySelector('.bplusslider');
+    var bpluscutoff = bplusslider.value;
+
+    
+    var bslider = document.querySelector('.bslider');
+    var bcutoff = bslider.value;
+ 
+    var bminusslider = document.querySelector('.bminusslider');
+    var bminuscutoff = bminusslider.value;
+
+
+    var cplusslider = document.querySelector('.cplusslider');
+    var cpluscutoff = cplusslider.value;
+ 
+    var cslider = document.querySelector('.cslider');
+    var ccutoff = cslider.value;
+ 
+    var cminusslider = document.querySelector('.cminusslider');
+    var cminuscutoff = cminusslider.value;
+
+
+    var dslider = document.querySelector('.dslider');
+    var dcutoff = dslider.value;
+
+    var fslider = document.querySelector('.fslider');
+    var fcutoff = fslider.value;
+
+    updateHistogram();
+
+
+
+    //set listeners for each slider with error handling
+
+    aplusslider.addEventListener('mouseup', function() {
+
+        //error checking
+        if(parseInt(this.value) <= parseInt(acutoff)){
+            this.value = apluscutoff;
+            alert('Error: Invalid cutoff value, the value cannot be less than or equal to ' + acutoff);
+        }
+        else{
+            apluscutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('A+ cutoff: ' + apluscutoff);
+    });
+
+    aslider.addEventListener('mouseup', function() {
+
+        //error checking
+        if(parseInt(this.value) >= parseInt(apluscutoff) || parseInt(this.value) <= parseInt(aminuscutoff)){
+            
+            this.value = acutoff
+            alert('Error: Invalid cutoff value, the value cannot be less than ' + aminuscutoff + ' or greater than '+ apluscutoff);
+        }
+        else{
+            acutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+
+        }
+        console.log('A cutoff: ' + acutoff);
+    });
+
+    aminusslider.addEventListener('mouseup', function() {
+
+        //error checking
+        if(parseInt(this.value <= bpluscutoff) || parseInt(this.value >= acutoff)){
+            this.value = aminuscutoff;
+            alert('Error: Invalid cutoff value, the value cannot be less than or equal to ' + bpluscutoff + ' or greater than or equal to ' + acutoff);
+        }
+        else{
+            aminuscutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('A- cutoff: ' + aminuscutoff);
+    });
+
+    bplusslider.addEventListener('mouseup', function() {
+
+        if(parseInt(this.value) <= parseInt(bcutoff) || parseInt(this.value) >= parseInt(aminuscutoff)){
+            this.value = bpluscutoff;
+            alert('Error: nvalid cutoff value, the value cannot be less than or equal to ' + bcutoff + ' or greater than or equal to ' + aminuscutoff);
+        }
+        else{
+            bpluscutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('B+ cutoff: ' + bpluscutoff);
+    });
+
+
+    bslider.addEventListener('mouseup', function() {
+
+        if(parseInt(this.value) <= parseInt(bminuscutoff) || parseInt(this.value) >= parseInt(bpluscutoff)){
+            this.value = bcutoff;
+            alert('Error: Invalid cutoff value, the value cannot be less than or equal to ' + bminuscutoff + ' or greater than or equal to ' + bpluscutoff);
+        }
+        else{
+            bcutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('B cutoff: ' + bcutoff);
+    });
+
+
+    bminusslider.addEventListener('mouseup', function() {
+
+        if(parseInt(this.value) <= parseInt(cpluscutoff) || parseInt(this.value) >= parseInt(bcutoff)){
+            this.value = bminuscutoff;
+            alert('Error: Invalid cutoff value, the value cannot be less than or equal to ' + cpluscutoff + ' or greater than or equal to ' + bcutoff);
+        }
+        else{
+            bminuscutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('B- cutoff: ' + bminuscutoff);
+    });
+
+    cplusslider.addEventListener('mouseup', function() {
+
+        if(parseInt(this.value) <= parseInt(ccutoff) || parseInt(this.value) >= parseInt(bminuscutoff)){
+            this.value = cpluscutoff;
+            alert('Error: Invalid cutoff value, the value cannot be less than or equal to ' + ccutoff + ' or greater than or equal to ' + bminuscutoff);
+        }
+        else{
+            cpluscutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('C+ cutoff: ' + cpluscutoff);
+    });
+
+
+    cslider.addEventListener('mouseup', function() {
+
+        if(parseInt(this.value) <= parseInt(cminuscutoff) || parseInt(this.value) >= parseInt(cpluscutoff)){
+            this.value = ccutoff;
+            alert('Error: Invalid cutoff value, the value cannot be less than or equal to ' + cminuscutoff + ' or greater than or equal to ' + cpluscutoff);
+        }
+        else{
+            ccutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('C cutoff: ' + ccutoff);
+    });
+
+    cminusslider.addEventListener('mouseup', function() {
+
+        if(parseInt(this.value) <= parseInt(dcutoff) || parseInt(this.value) >= parseInt(ccutoff)){
+            this.value = cminuscutoff;
+            alert('Error: Invalid cutoff value, the value cannot be less than or equal to ' + dcutoff + ' or greater than or equal to ' + ccutoff);
+        }
+        else{
+            cminuscutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('C- cutoff: ' + cminuscutoff);
+    });
+
+    dslider.addEventListener('mouseup', function() {
+
+        if(parseInt(this.value) <= parseInt(fcutoff) || parseInt(this.value) >= parseInt(cminuscutoff)){
+            this.value = dcutoff;
+            alert('Error: Invalid cutoff value, the value cannot be less than or equal to ' + fcutoff + ' or greater than or equal to ' + cminuscutoff);
+        }
+        else{
+            dcutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('D cutoff: ' + dcutoff);
+    });
+
+    fslider.addEventListener('mouseup', function() {
+
+        if(parseInt(this.value) >= parseInt(dcutoff)){
+            this.value = fcutoff;
+            alert('Error: Invalid cutoff value, the value cannot be greater than or equal to ' +  dcutoff);
+        }
+        else{
+            fcutoff = this.value;
+            clearHistogram();
+            updateHistogram();
+        }
+        console.log('F cutoff: ' + fcutoff);
+    });
+    
+
+    //cutoff
+    function clearHistogram(){
+        for(var i = 0; i < tableBody.rows.length; i++){
+            for(var j = 0; j < 11; j++){
+                tableBody.rows[i].cells[j].innerHTML = null;
+            }
+        }
+
+        letterGrades = [];
+    }
+
+    function updateHistogram(){
+
+        
+        for(var i = 0; i < csvData.length; i++){
+            //Calculate each student's final grade
+            if(csvData[i].studentID == 'total'){
+                quizWeight = csvData[i].quiz;
+                midtermWeight = csvData[i].midterm;
+                finalWeight = csvData[i].final;
+            }
+        }
+
+        for(var i = 0; i < csvData.length; i++){
+             
+            var studentID = csvData[i].studentID;
+            var quiz = csvData[i].quiz;
+            var midterm = csvData[i].midterm;
+            var final = csvData[i].final;
+
+            if(studentID == 'total'){
+                continue;
+            }
+
+            quizPercentage = (quiz/100) * quizWeight;
+            midtermPercentage = (midterm/100) * midtermWeight;
+            finalPercentage = (final/100) * finalWeight;
+
+            studentFinalPercentage = quizPercentage + midtermPercentage + finalPercentage;
+
+            console.log(studentFinalPercentage);
+
+            if(studentFinalPercentage >= apluscutoff && studentFinalPercentage <= 100){
+    
+                letterGrades[i] = 'A+';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[0].innerHTML){
+                        tableBody.rows[k].cells[0].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+            else if(studentFinalPercentage >= acutoff && studentFinalPercentage < apluscutoff){
+                
+                letterGrades[i] = 'A';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[1].innerHTML){
+                        tableBody.rows[k].cells[1].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+            else if(studentFinalPercentage >= aminuscutoff && studentFinalPercentage < acutoff){
+                
+                letterGrades[i] = 'A-';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[2].innerHTML){
+                        tableBody.rows[k].cells[2].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+            else if(studentFinalPercentage >= bpluscutoff && studentFinalPercentage < aminuscutoff){
+           
+                letterGrades[i] = 'B+';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[3].innerHTML){
+                        tableBody.rows[k].cells[3].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+            else if (studentFinalPercentage >= bcutoff && studentFinalPercentage < bpluscutoff){
+                
+                letterGrades[i] = 'B';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[4].innerHTML){
+                        tableBody.rows[k].cells[4].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+
+            else if (studentFinalPercentage >= bminuscutoff && studentFinalPercentage < bcutoff){
+                
+                letterGrades[i] = 'B-';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[5].innerHTML){
+                        tableBody.rows[k].cells[5].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+            else if (studentFinalPercentage >= cpluscutoff && studentFinalPercentage < bminuscutoff){
+       
+                letterGrades[i] = 'C+';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[6].innerHTML){
+                        tableBody.rows[k].cells[6].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+            else if (studentFinalPercentage >= ccutoff && studentFinalPercentage < cpluscutoff){
+      
+                letterGrades[i] = 'C';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[7].innerHTML){
+                        tableBody.rows[k].cells[7].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }   
+            else if (studentFinalPercentage >= cminuscutoff && studentFinalPercentage < ccutoff){
+   
+                letterGrades[i] = 'C-';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[8].innerHTML){
+                        tableBody.rows[k].cells[8].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+
+            else if (studentFinalPercentage >= dcutoff && studentFinalPercentage < cminuscutoff){
+                
+                letterGrades[i] = 'D';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[9].innerHTML){
+                        tableBody.rows[k].cells[9].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+            else if (studentFinalPercentage >= fcutoff && studentFinalPercentage < dcutoff){
+                
+                letterGrades[i] = 'F';
+                for(var k = 0; k < tableBody.rows.length; k++){
+                    if(!tableBody.rows[k].cells[10].innerHTML){
+                        tableBody.rows[k].cells[10].innerHTML = 'O';
+                        break;
+                    }
+                }
+            }
+        }
+       
+    var printoutForm = document.querySelector('form');
+
+    if(printoutForm.childNodes.length == 1){
+        var child1 = printoutForm.childNodes[0];
+        printoutForm.removeChild(child1);
+    }else if(printoutForm.childNodes.length == 2){
+        var child1 = printoutForm.childNodes[0];
+        var child2 = printoutForm.childNodes[1];
+        printoutForm.removeChild(child1);
+        printoutForm.removeChild(child2);
+    }
+    
+    
+    console.log(letterGrades);
+
+    var letterGradesData = document.createElement('input');
+    letterGradesData.className = 'letterGradesData'
+    letterGradesData.setAttribute('type','hidden');
+    letterGradesData.setAttribute('name','letterGradesData');
+    letterGradesData.setAttribute('value',JSON.stringify(letterGrades));
+    printoutForm.appendChild(letterGradesData);
+
+    var subBtn = document.createElement('input');
+    subBtn.setAttribute('type', 'submit');
+    subBtn.className = 'print-btn';
+    subBtn.setAttribute('value', 'Print out student grade results');
+    printoutForm.appendChild(subBtn);
+
+ 
+    }
+
+
+    console.log(JSON.stringify(letterGrades));
+    console.log(tableBody.rows[0]);
+
+    console.log(tableBody);
+
+
+
+
+</script>
+

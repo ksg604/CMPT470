@@ -1,0 +1,89 @@
+<div class = "container-fluid bg-3 text-center">
+    <div class = "row">
+        <div class = "col-md-3">
+        </div>
+        <div class = "col">
+            <h1><%-currBusiness.name%> Reviews</h1>
+            <div class = "tableContainer">
+                <table class = "table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Visited</th>
+                            <th>Reviewer</th>
+                            <th>Review</th>
+                            <th>Rating</th>
+                        </tr>
+                    </thead>
+
+
+                    <tbody id = "restReviews">
+
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class = "col-md-3">
+        </div>
+    </div>
+
+    <script type = "text/javascript">
+
+        //Get business information
+        var businessId = <%-JSON.stringify(JSON.stringify(businessID))%>;
+        var business = JSON.parse(<%-JSON.stringify(JSON.stringify(currBusiness))%>);
+        console.log(business);
+
+        //Fill in review table with reviews
+
+        var reviewTable = document.querySelector('.table');
+
+        console.log('hi');
+        for(var j = 0; j < business.reviews.length; j++){
+
+            var reviewer = business.reviews[j].reviewer;
+            var rating = business.reviews[j].rating;
+            var row = reviewTable.insertRow();
+            row.className = (reviewer);
+            row.id = (reviewer);
+
+            var visitedCell = row.insertCell(0);
+            visitedCell.innerHTML = 'No';
+            for(var k = 0; k < business.serveList.length; k++){
+                if(business.serveList[k].name == reviewer){
+                    visitedCell.innerHTML = 'Yes';
+                    continue;
+                }
+            }
+
+            var reviewerCell = row.insertCell(1);
+            reviewerCell.innerHTML = business.reviews[j].reviewer;
+            var reviewCell = row.insertCell(2);
+            reviewCell.innerHTML = business.reviews[j].review;
+            var ratingCell = row.insertCell(3);
+
+            var content = rating.toString() + " ";
+            for (var k = 0; k < rating; k ++)
+            {
+                content+= "<span class=\"fa fa-star checked\"></span>";
+            }
+            for (var k = 0; k < (5 - rating); k++)
+            {
+                content+= "<span class=\"fa fa-star unchecked\"></span>";
+            }
+            ratingCell.innerHTML = content;
+
+        }
+
+
+
+    </script>
+
+
+
+
+
+
+</div>

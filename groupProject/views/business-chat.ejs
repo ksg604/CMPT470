@@ -1,0 +1,11 @@
+<script src='/javascripts/socket.io.js'></script>
+<script src='/javascripts/chat.js'></script>
+
+<body onload="initChat('<%= business._id %>', '<%= business.name %>', '<%= business.queueList.map(x => x.id) %>')">
+<%- include('./partials/chat.ejs'); %>
+<div class="container" id="buttons_wrapper">
+
+<div id="buttons" class="row input-group-btn"></div>
+</div>
+
+
